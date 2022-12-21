@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   DESC
 
   git_tracked_files = `git ls-files`.split("\n").sort
-  gem_ignored_files = `git ls-files -i -X .gemignore`.split("\n")
+  gem_ignored_files = `git ls-files -X .gemignore`.split("\n")
 
   s.files = (git_tracked_files - gem_ignored_files).reject { |f| f.match(%r{^(test|spec|features)/}) }
 
